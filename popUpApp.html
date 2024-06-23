@@ -60,12 +60,14 @@ var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 for(let i = 0; i < images.length; i++){
   images[i].onclick = function(){
+// dont use onclick method use eventlistner
     modal.style.display = "block";
   }
 }
 
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
+// dont use onclick method use eventlistner
   modal.style.display = "none";
 } 
 
