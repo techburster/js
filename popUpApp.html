@@ -1,0 +1,215 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Pop Up Application</title>
+    <style>
+        .container {
+            height: auto;
+            background-color: aqua;
+            width: 50%;
+
+        }
+
+        .row {
+            margin-top: 100px;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .main {
+            height: 200px;
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+        </div>
+        <div class="row">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+            <img id="myImg" style="height: 100px; width: 200px;" src="images/item1.jpg" alt="">
+        </div>
+    </div>
+
+    <div id="mymodal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+</body>
+
+</html>
+
+<script>
+var modal = document.getElementById('myModal');
+var images = document.querySelectorAll(".myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+for(let i = 0; i < images.length; i++){
+  images[i].onclick = function(){
+    modal.style.display = "block";
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+} 
+
+
+    // var modal = document.getElementById("modal");
+
+    
+    // const clickbtn = document.getElementById("clickbtn")
+    // const img = document.getElementById("imgBox");
+    // img.addEventListener("click", function () {
+    //     for (i = 0; i < imgBox.length; i++) {
+
+    //     }
+    // })
+</script> -->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #myImg:hover {
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content,
+        #caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <img class="myImg" src="images/item1.jpg" style="width:100%;max-width:300px">
+    <img class="myImg" src="images/product_1.png" style="width:100%;max-width:300px">
+    <img class="myImg" src="images/item2.jpg" style="width:100%;max-width:300px">
+    <img class="myImg" src="images/product_12.png" style="width:100%;max-width:300px">
+    <img class="myImg" src="images/product_28.png" style="width:100%;max-width:300px">
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var images = document.querySelectorAll('.myImg');
+        var modalImg = document.getElementById("img01");
+
+        images.forEach(function (img) {
+            img.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
